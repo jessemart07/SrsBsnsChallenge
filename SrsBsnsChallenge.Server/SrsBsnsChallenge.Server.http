@@ -1,0 +1,6 @@
+@SrsBsnsChallenge.Server_HostAddress = http://localhost:5179
+
+GET {{SrsBsnsChallenge.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

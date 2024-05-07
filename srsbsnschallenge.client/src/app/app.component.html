@@ -1,0 +1,55 @@
+<section >
+  <form [formGroup]="contactForm" (submit)="submitForm()" class="contact-form">
+    <h2 class="form-heading">We can't wait to hear from you</h2>
+    <div class="form-group">
+      <input formControlName="name" [ngClass]="{'input-error' : submitted && f['name'].errors}" class="input-field" type="text" placeholder="Enter Name" />
+      @if (submitted && f['name'].errors) {
+      <div class="invalid-feedback">
+        @if (f['name'].errors['required']) {
+        <span>Name is required</span>
+        }
+      </div>
+      }
+    </div>
+    <div>
+      <input formControlName="subject" [ngClass]="{'input-error' : submitted && f['subject'].errors}" class="input-field" type="text" placeholder="Enter Subject" />
+      @if (submitted && f['subject'].errors) {
+      <div class="invalid-feedback">
+        @if (f['subject'].errors['required']) {
+        <span>Subject is required</span>
+        }
+      </div>
+      }
+    </div>
+    <div>
+      <input formControlName="email" [ngClass]="{'input-error' : submitted && f['email'].errors}" class="input-field" type="text" placeholder="Enter Email" />
+      @if (submitted && f['email'].errors) {
+      <div class="invalid-feedback">
+        @if (f['email'].errors['required']) {
+        <span>Email is required</span>
+        }
+        @if (f['email'].errors['email']) {
+        <span>Email is invalid</span>
+        }
+      </div>
+      }
+    </div>
+    <div>
+      <textarea formControlName="message" [ngClass]="{'input-error' : submitted && f['message'].errors}" class="input-text-area" maxlength="200" placeholder="Enter Message" rows="5"></textarea>
+      @if (submitted && f['message'].errors) {
+      <div class="invalid-feedback">
+        @if (f['message'].errors['required']) {
+        <span>Message is required</span>
+        }
+      </div>
+      }
+    </div>
+
+    <button type="submit" class="form-btn">{{isLoading ? "Sending" : "Submit"}}@if(isLoading){<div class="loader"> </div>}</button>
+    @if(submissionMessage !== "" && !isLoading){
+      <div [ngClass]="{ 'form-error' : formError , 'form-success' : !formError}" class="submission-message">
+        <span >{{submissionMessage}}</span>
+      </div>
+    }
+  </form>
+</section>
