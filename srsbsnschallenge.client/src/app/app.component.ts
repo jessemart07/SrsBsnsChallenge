@@ -76,7 +76,7 @@ export class AppComponent implements OnInit {
       const AdminEmailRequest: emailRequest = {
         name: ContactForm.name,
         subject: "New Form Submission",
-        to: "colin@srsbsns.co.za",
+        to: "jessedevtester07@gmail.com",
         body: `<html lang="en">
                   <head>
                     <meta charset="UTF-8">
